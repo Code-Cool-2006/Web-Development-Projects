@@ -1,0 +1,36 @@
+<!Doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch Timer Application</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="Title">StopWatch Timer</h1>
+        <div class="stopwatch">
+            <div class="timer">
+                <span id="minutes">00</span>:
+                <span id="seconds">00</span>:
+                <span id="milliseconds">00</span>
+            </div>
+            <div class="controls">
+                <!-- changed ids to match JS: startBtn, stopBtn, pauseBtn, resetBtn -->
+                <button id="startBtn">Start</button>
+                <button id="stopBtn">Stop</button>
+                <button id="pauseBtn">Pause</button>
+                <button id="resetBtn">Reset</button>
+                <!-- Added Clear Laps button -->
+                <button id="clearLapsBtn">Clear Laps</button>
+            </div>  
+            <div class="lap">
+                <h2 class="lap-title">Lap Timer</h2>
+                <!-- changed id to lapList to match JS -->
+                <ul id="lapList"></ul>  
+            </div>
+        </div>
+    </div> 
+</body>
+</html>
