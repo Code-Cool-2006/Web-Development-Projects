@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>To-Do App</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(
+          135deg,
+          #f6b26b 0%,
+          #c04b4b 50%,
+          #4a1f1f 100%
+        );
+        min-height: 100vh;
+        margin: 0;
+        padding: 20px;
+      }
+
+      .container {
+        width: 600px;
+        height: 600px;
+        margin: 0 auto;
+        background: conic-gradient(from 45deg, #e6e6fa, #d8bfd8, #e6e6fa);
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        border: 1px solid rgba(0, 0, 0, 0.06);
+      }
+      h1 {
+        font-size: 4rem;
+        text-align: center;
+        color: #672727;
+        background: linear-gradient(to right, #f96e03, #4ca1af);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      input[type="text"] {
+        width: calc(90% - 22px);
+        padding: 12px;
+        font-size: 18px;
+        border: none;
+        border-radius: 25px;
+        box-sizing: border-box;
+        margin-bottom: 15px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: box-shadow 0.3s ease;
+        background-color: #f8f8ff;
+        color: #333;
+      }
+      input[type="text"]:focus {
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        outline: none;
+      }
+      button {
+        padding: 12px 20px;
+        font-size: 18px;
+        background-color: #12485f;
+        color: rgb(20, 19, 19);
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease,
+          box-shadow 0.3s ease;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      }
+      li {
+        display: flex;
+        justify-content: space-between; /* pushes text left, button right */
+        align-items: center;
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+      }
+
+      .delete-todo-btn {
+        margin-left: 15px; /* space between text and button */
+        border: none;
+        background: #e63946;
+        color: white;
+        padding: 6px 12px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+
+      .delete-todo-btn:hover {
+        background: #b71c1c;
+      }
+
+      button:hover {
+        color: #ddd;
+        transform: translateY(2px);
+        background-color: #c19615;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+      }
+      button:active {
+        transform: scale(0.95);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      }
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+      li {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+      }
+      li.completed {
+        text-decoration: line-through;
+        color: gray;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>To-Do List</h1>
+      <input type="text" id="newTodoInput" placeholder="Add a new task..." />
+      <button id="addTodoBtn">Add</button>
+
+      <ul id="todoList"></ul>
+    </div>
+    <script>
+      const todoList = document.getElementById("todoList");
+      const newTodoInput = document.getElementById("newTodoInput");
+      const addTodoBtn = document.getElementById("addTodoBtn");
+
+      // Function to add a new todo
+      function addTodo() {
+        const newTodoText = newTodoInput.value.trim();
+        if (newTodoText !== "") {
+          const newTodoItem = document.createElement("li");
+          newTodoItem.textContent = newTodoText;
+
+          // Delete button
+          const deleteTodoBtn = document.createElement("button");
+          deleteTodoBtn.textContent = "❌";
+          deleteTodoBtn.classList.add("delete-todo-btn");
+
+          deleteTodoBtn.addEventListener("click", () => {
+            newTodoItem.remove();
+          });
+
+          newTodoItem.appendChild(deleteTodoBtn);
+          todoList.appendChild(newTodoItem);
+          newTodoInput.value = "";
+          newTodoInput.focus();
+        }
+      }
+
+      // Add todo when button clicked
+      addTodoBtn.addEventListener("click", addTodo);
+
+      // Add todo when Enter key pressed
+      newTodoInput.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+          addTodo();
+        }
+      });
+    </script>
+  </body>
+</html>
