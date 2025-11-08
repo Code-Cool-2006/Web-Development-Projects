@@ -28,6 +28,10 @@ A collection of small web development projects built using **HTML, CSS, and Java
 <img width="400" height="944" alt="image" src="https://github.com/user-attachments/assets/f13485d6-a7c0-49a5-98e8-defd7d11682b" />
 <h4>Live Preveiw : https://web-development-projects-noting.vercel.app</h4>
 
+---
+### Birthday Animation
+<h4>Live Prveiw: https://web-development-projects-1amc.vercel.app/</h4>
+
 
 
 ## ⚡ How to Run
